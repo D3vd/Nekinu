@@ -34,24 +34,30 @@ class _HomeState extends State<Home> {
         .get(Uri.encodeFull(_apiURL), headers: {"Accept": "application/json"});
     var extractdata = json.decode(response.body);
 
-    setState(() {
-      _url = extractdata[0];
-    });
+    if (_category == 'cat') {
+      setState(() {
+        _url = extractdata[0];
+      });
+    } else if (_category == 'dog') {
+      setState(() {
+        _url = extractdata[0]["url"];
+      });
+    }
   }
 
   void changeCategory() {
     if (_category == 'cat') {
       setState(() {
         _category = 'dog';
-        _apiURL = 'http://shibe.online/api/shibes';
+        _apiURL = 'https://api.thedogapi.com/v1/images/search';
       });
-      print('Changed to dog');
+      makeRequest();
     } else if (_category == 'dog') {
       setState(() {
         _category = 'cat';
         _apiURL = 'http://shibe.online/api/cats';
       });
-      print('Changed to cat');
+      makeRequest();
     }
   }
 
@@ -67,6 +73,7 @@ class _HomeState extends State<Home> {
           alignment: Alignment.center,
         ),
       ),
+      backgroundColor: Colors.black,
       floatingActionButton: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.end,
@@ -79,13 +86,16 @@ class _HomeState extends State<Home> {
               onPressed: changeCategory,
             ),
           ),
-          FloatingActionButton(
-            heroTag: null,
-            child: Icon(
-              Icons.refresh,
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 5.0),
+            child: FloatingActionButton(
+              heroTag: null,
+              child: Icon(
+                Icons.refresh,
+              ),
+              backgroundColor: Colors.redAccent,
+              onPressed: makeRequest,
             ),
-            backgroundColor: Colors.redAccent,
-            onPressed: makeRequest,
           ),
         ],
       ),
