@@ -1,16 +1,30 @@
-# nekinu
+# Nekinu
 
-A new Flutter project.
+<img src="https://i.imgur.com/wojpSz1.jpg" align="center">
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+A simple flutter app that shows random pictures of cats and dogs. Made as a submission for [Flutter Create](https://flutter.dev/create).
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+
+## Screenshots
+
+![Cat Demo](https://i.imgur.com/27C4ltH.jpg) ![Dog Demo](https://i.imgur.com/YWO0N58.jpg)
+
+
+
+## Libraries Used 
+
+- [http](https://pub.dartlang.org/packages/http)
+- [flutter_launcher_icons](https://pub.dartlang.org/packages/flutter_launcher_icons)
+
+
+
+## Resources Used
+
+- Cats Images - [Shibe Online](https://shibe.online/)
+
+- Dogs Images - [The Dog API](https://thedogapi.com/)
+
+  
